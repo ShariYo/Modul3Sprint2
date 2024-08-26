@@ -69,7 +69,7 @@ def f_histogram(
     plt.title(title, size=14, fontweight="bold", ha="center")
     plt.legend()
 
-    return plt.show()
+    return
 
 
 def f_barplot(xaxis, figsize=(6, 4), xlabel=None, title=None):
@@ -88,7 +88,7 @@ def f_barplot(xaxis, figsize=(6, 4), xlabel=None, title=None):
     plt.title(title, size=14, fontweight="bold", ha="center")
     plt.legend()
 
-    return plt.show()
+    return
 
 
 def f_boxplot(
@@ -117,7 +117,7 @@ def f_boxplot(
     plt.tight_layout()
     plt.legend().remove()
 
-    return plt.show()
+    return
 
 
 def f_displot(
@@ -137,7 +137,7 @@ def f_displot(
     plt.title(title, size=14, fontweight="bold", ha="center")
     plt.tight_layout()
 
-    return plt.show()
+    return
 
 
 def f_heatmap(data, figsize=(6, 4), title=None):
@@ -146,4 +146,4 @@ def f_heatmap(data, figsize=(6, 4), title=None):
     sns.heatmap(data, annot=True, cmap="Greens", mask=mask, center=0)
     plt.title(title, size=14, fontweight="bold", ha="center")
 
-    return plt.show()
+    return
