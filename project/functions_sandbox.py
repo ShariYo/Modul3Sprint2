@@ -120,6 +120,33 @@ def f_boxplot(
     return
 
 
+def f_countplot(
+    data=None,
+    xaxis=None,
+    yaxis=None,
+    hue=None,
+    stat="count",
+    title=None,
+    xlabel=None,
+    ylabel=None,
+    figsize=(5, 3),
+):
+    plt.figure(figsize=figsize)
+    sns.set_palette("crest")
+    ax = sns.countplot(data=data, x=xaxis, y=yaxis, hue=hue, stat=stat)
+    for container in ax.containers:
+        ax.bar_label(container)
+    ax.axes.get_yaxis().set_visible(False)
+    ax.axes.get_xaxis().set_visible(True)
+    ax.set_frame_on(False)
+    plt.title(title, size=14, fontweight="bold", ha="center")
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.tight_layout()
+
+    return
+
+
 def f_displot(
     data=None,
     xaxis=None,
