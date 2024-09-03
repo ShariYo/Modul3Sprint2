@@ -3,6 +3,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 from statsmodels.stats.outliers_influence import variance_inflation_factor
+from sklearn.metrics import precision_score, recall_score
 
 
 def cleaner(df, info=True):
@@ -49,6 +50,20 @@ def remove_outliers_iqr(df, column):
         clean = clean[(clean[col] >= lower_bound) & (clean[col] <= upper_bound)]
 
     return clean
+
+
+def model_result_calc(target_test, target_predicted, pos_label):
+    precision = precision_score(target_test, target_predicted, pos_label=pos_label)
+    recall = recall_score(target_test, target_predicted, pos_label=pos_label)
+    if precision + recall == 0:
+        f1 = 0
+    else:
+        f1 = 2 * (precision * recall) / (precision + recall)
+    print(f"Precision score: {precision:.2f}")
+    print(f"Recall score: {recall:.2f}")
+    print(f"F1 score: {f1:.2f}")
+
+    return
 
 
 def reg_formula(model, X):
